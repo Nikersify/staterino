@@ -1,0 +1,24 @@
+{
+  "name": "staterino",
+  "version": "0.0.1",
+  "description": "csgo gamestate integration service",
+  "scripts": {
+    "dev": "nodemon -x iced app.iced"
+  },
+  "author": "nikersify",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-redis": "^3.0.1",
+    "csgo": "^1.0.1",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "iced-coffee-script": "^108.0.9",
+    "jade": "^1.11.0",
+    "moment": "^2.10.6",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-twitch": "^1.0.2",
+    "redis": "^2.4.2",
+    "steam": "^1.1.0"
+  }
+}
