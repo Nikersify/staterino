@@ -1,0 +1,11 @@
+img.login {
+    opacity: 0.9;
+    max-width: 154px;
+    max-height: 21px;
+
+    vertical-align: middle;
+}
+
+.navbar {
+	border-radius: 0;
+}

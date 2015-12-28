@@ -11,11 +11,14 @@ session = require 'express-session'
 RedisStore = require('connect-redis')(session)
 
 app = express()
+server = require('http').Server(app)
+
+require('./core/socket').startSocketServer(server)
 
 app.set 'view engine', 'jade'
 
-app.use bodyParser.urlencoded extended: true
 app.use bodyParser.json()
+app.use bodyParser.urlencoded extended: true
 
 app.use morgan 'dev'
 
@@ -28,9 +31,10 @@ app.use session
 app.use passport.initialize()
 app.use passport.session()
 
+app.use express.static 'public'
 app.use require './routes'
 
-app.listen config.express.port, ->
+server.listen config.express.port, ->
 	console.log "Express listening on #{config.express.port}"
 
 r = repl.start
@@ -40,3 +44,4 @@ r = repl.start
 r.on 'exit', ->
 	console.log '\nTerminating...'
 	process.exit()
+

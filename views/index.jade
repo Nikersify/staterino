@@ -1,10 +1,11 @@
-html
-	head
-		title hi
-	body
-		h1 Staterino! :D
-		if user
-			a(href='/auth/logout') logout
-			h2 username: #{user.name}
-		else
-			a(href='/auth/login') login
+extends base
+
+block head
+	title Staterino
+block content
+	h1 Staterino!
+	if user
+		ul
+		for prop, key in user
+			if key != 'refreshToken' && key != 'accessToken'
+				li #{key}: #{prop}

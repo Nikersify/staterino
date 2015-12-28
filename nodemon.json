@@ -1,0 +1,4 @@
+{
+	"verbose": false,
+	"ignore": ["gulpfile.js", "public/", "source/", "node_modules/"]
+}

@@ -2,16 +2,16 @@ db = require '../core/database'
 
 class module.exports
 	
-	constructor: (@twitch_id) ->
+	constructor: (@name) ->
 
 	exists: (callback) ->
-		await db.exists 'user:' + @twitch_id, defer err, reply
+		await db.exists 'user:' + @name + ':basic', defer err, reply
 		callback? err, reply
 
-	setAll: (data, callback) ->
-		await db.hmset 'user:' + @twitch_id, data, defer err, reply
+	setAll: (realm, data, callback) ->
+		await db.hmset "user:#{@name}:#{realm}", data, defer err, reply
 		callback? err, reply
 
-	getAll: (callback) ->
-		await db.hgetall 'user:' + @twitch_id, defer err, reply
+	getAll: (realm, callback) ->
+		await db.hgetall "user:#{@name}:#{realm}", defer err, reply
 		callback? err, reply
